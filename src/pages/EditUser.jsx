@@ -190,4 +190,8 @@ const EditUser = () => {
   );
 };
 
+<<<<<<< HEAD
 export default EditUser;
+=======
+export default EditUser;
+>>>>>>> cd0f53c09d9a9eec19f9c615d8b31325f50f4144
