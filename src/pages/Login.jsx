@@ -7,21 +7,40 @@ import { login } from '../services/api';
 const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('eve.holt@reqres.in');
-  const [password, setPassword] = useState('cityslicka');
+  const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    // Strict password check FIRST
+    if (password !== 'cityslicka') {
+      toast.error('Wrong password');
+      setPassword('');
+      return;
+    }
+
+    if (!email || !password) {
+      toast.error('Please enter both email and password');
+      return;
+    }
+
     setIsLoading(true);
 
     try {
       const response = await login(email, password);
+      
+      if (!response.token) {
+        throw new Error('Invalid credentials');
+      }
+
       localStorage.setItem('token', response.token);
       toast.success('Login successful!');
       navigate('/users');
     } catch (error) {
-      toast.error('Invalid credentials');
+      setPassword('');
+      toast.error('Invalid credentials. Use password: cityslicka');
     } finally {
       setIsLoading(false);
     }
@@ -36,7 +55,10 @@ const Login = () => {
               <LogIn className="h-8 w-8 text-indigo-600" />
             </div>
             <h2 className="text-3xl font-bold text-gray-900 tracking-tight">Welcome back</h2>
-            <p className="mt-2 text-sm text-gray-600">Sign in to your account to continue</p>
+            <p className="mt-2 text-sm text-gray-600">
+              Sign in to your account to continue<br />
+            
+            </p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-6">
@@ -55,7 +77,7 @@ const Login = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="input-field pl-10"
-                  placeholder="Enter your email"
+                  placeholder="eve.holt@reqres.in"
                 />
               </div>
             </div>
@@ -75,7 +97,7 @@ const Login = () => {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   className="input-field pl-10 pr-10"
-                  placeholder="Enter your password"
+                  placeholder="Enter Password"
                 />
                 <button
                   type="button"
