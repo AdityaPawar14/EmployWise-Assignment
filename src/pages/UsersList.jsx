@@ -21,19 +21,19 @@ const UsersList = () => {
     640: 1
   };
 
-  // ✅ Function to fetch users and ensure uniqueness
+  
   const fetchUsers = async () => {
     setIsLoading(true);
     try {
       const response = await getUsers(page);
 
-      // Ensure uniqueness using Map
+      
       const uniqueUsersMap = new Map();
       [...users, ...response.data].forEach(user => {
         uniqueUsersMap.set(user.id, user);
       });
 
-      // Convert Map back to an array
+      
       setUsers(Array.from(uniqueUsersMap.values()));
 
       setTotalPages(response.total_pages);
@@ -48,13 +48,13 @@ const UsersList = () => {
     fetchUsers();
   }, [page]);
 
-  // ✅ Handle Logout
+  
   const handleLogout = () => {
     localStorage.removeItem('token');
     navigate('/login');
   };
 
-  // ✅ Handle Delete User
+  
   const handleDelete = async (id) => {
     if (!window.confirm('Are you sure you want to delete this user?')) return;
 
@@ -130,7 +130,7 @@ const UsersList = () => {
           ))}
         </Masonry>
 
-        {/* ✅ Load More Button */}
+        
         {!isLoading && page < totalPages && (
           <div className="flex justify-center mt-8">
             <button
@@ -142,7 +142,7 @@ const UsersList = () => {
           </div>
         )}
 
-        {/* ✅ Loading Spinner */}
+        
         {isLoading && (
           <div className="flex justify-center mt-8">
             <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-red-500"></div>

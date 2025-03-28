@@ -23,11 +23,11 @@ const EditUser = () => {
       
       try {
         setIsLoading(true);
-        // Fetch all pages if necessary to find the user
+        
         let page = 1;
         let userFound = null;
         
-        while (page <= 2) { // Assuming max 2 pages based on reqres.in
+        while (page <= 2) { 
           const response = await getUsers(page);
           const user = response.data.find((u) => u.id === parseInt(id));
           if (user) {

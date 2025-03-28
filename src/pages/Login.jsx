@@ -14,7 +14,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    // Strict password check FIRST
+    
     if (password !== 'cityslicka') {
       toast.error('Wrong password');
       setPassword('');
