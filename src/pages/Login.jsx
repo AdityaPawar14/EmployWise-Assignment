@@ -14,7 +14,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    // Strict password check FIRST
+    
     if (password !== 'cityslicka') {
       toast.error('Wrong password');
       setPassword('');
@@ -57,7 +57,7 @@ const Login = () => {
             <h2 className="text-3xl font-bold text-gray-900 tracking-tight">Welcome back</h2>
             <p className="mt-2 text-sm text-gray-600">
               Sign in to your account to continue<br />
-              {/* <span className="text-indigo-600 font-medium">Password must be: cityslicka</span> */}
+             
             </p>
           </div>
 
