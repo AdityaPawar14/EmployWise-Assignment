@@ -14,7 +14,6 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    
     if (password !== 'cityslicka') {
       toast.error('Wrong password');
       setPassword('');
@@ -57,11 +56,6 @@ const Login = () => {
             <h2 className="text-3xl font-bold text-gray-900 tracking-tight">Welcome back</h2>
             <p className="mt-2 text-sm text-gray-600">
               Sign in to your account to continue<br />
-<<<<<<< HEAD
-            
-=======
-             
->>>>>>> cd0f53c09d9a9eec19f9c615d8b31325f50f4144
             </p>
           </div>
 
@@ -141,8 +135,4 @@ const Login = () => {
   );
 };
 
-<<<<<<< HEAD
 export default Login;
-=======
-export default Login;
->>>>>>> cd0f53c09d9a9eec19f9c615d8b31325f50f4144

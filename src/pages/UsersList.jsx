@@ -21,30 +21,16 @@ const UsersList = () => {
     640: 1
   };
 
-<<<<<<< HEAD
-  
-=======
->>>>>>> cd0f53c09d9a9eec19f9c615d8b31325f50f4144
   const fetchUsers = async () => {
     setIsLoading(true);
     try {
       const response = await getUsers(page);
 
-<<<<<<< HEAD
-      
-=======
-    
->>>>>>> cd0f53c09d9a9eec19f9c615d8b31325f50f4144
       const uniqueUsersMap = new Map();
       [...users, ...response.data].forEach(user => {
         uniqueUsersMap.set(user.id, user);
       });
 
-<<<<<<< HEAD
-      
-=======
-     
->>>>>>> cd0f53c09d9a9eec19f9c615d8b31325f50f4144
       setUsers(Array.from(uniqueUsersMap.values()));
 
       setTotalPages(response.total_pages);
@@ -59,21 +45,11 @@ const UsersList = () => {
     fetchUsers();
   }, [page]);
 
-<<<<<<< HEAD
-  
-=======
- 
->>>>>>> cd0f53c09d9a9eec19f9c615d8b31325f50f4144
   const handleLogout = () => {
     localStorage.removeItem('token');
     navigate('/login');
   };
 
-<<<<<<< HEAD
-  
-=======
- 
->>>>>>> cd0f53c09d9a9eec19f9c615d8b31325f50f4144
   const handleDelete = async (id) => {
     if (!window.confirm('Are you sure you want to delete this user?')) return;
 
@@ -88,11 +64,6 @@ const UsersList = () => {
 
   return (
     <div className="min-h-screen bg-white">
-<<<<<<< HEAD
-   
-=======
-      
->>>>>>> cd0f53c09d9a9eec19f9c615d8b31325f50f4144
       <div className="sticky top-0 z-50 bg-white border-b border-gray-100 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
@@ -101,17 +72,11 @@ const UsersList = () => {
               <h1 className="text-xl font-semibold text-gray-900">Admin</h1>
             </div>
 
-<<<<<<< HEAD
-
-=======
-            
->>>>>>> cd0f53c09d9a9eec19f9c615d8b31325f50f4144
             <div className="flex-1 max-w-2xl mx-8">
               <h2 className="text-3xl font-medium text-gray-900 text-center">
                 Hello ReqRes Users!
               </h2>
             </div>
-
 
             <button onClick={handleLogout} className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full text-white bg-red-500 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-colors duration-200">
               <LogOut className="w-4 h-4 mr-2" />
@@ -120,7 +85,6 @@ const UsersList = () => {
           </div>
         </div>
       </div>
-
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <Masonry
@@ -157,7 +121,6 @@ const UsersList = () => {
           ))}
         </Masonry>
 
-        
         {!isLoading && page < totalPages && (
           <div className="flex justify-center mt-8">
             <button
@@ -169,7 +132,6 @@ const UsersList = () => {
           </div>
         )}
 
-        
         {isLoading && (
           <div className="flex justify-center mt-8">
             <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-red-500"></div>
@@ -180,8 +142,4 @@ const UsersList = () => {
   );
 };
 
-<<<<<<< HEAD
 export default UsersList;
-=======
-export default UsersList;
->>>>>>> cd0f53c09d9a9eec19f9c615d8b31325f50f4144
